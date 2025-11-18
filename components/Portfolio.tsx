@@ -368,10 +368,17 @@ function Noise() {
 }
 
 function noiseDataURL() {
+  if (typeof document === "undefined") {
+    // we're on the server during prerender; just don't render noise yet
+    return "none";
+  }
+
   const size = 64;
   const c = document.createElement("canvas");
   c.width = c.height = size;
-  const ctx = c.getContext("2d")!;
+  const ctx = c.getContext("2d");
+  if (!ctx) return "none";
+
   const imgData = ctx.createImageData(size, size);
   for (let i = 0; i < imgData.data.length; i += 4) {
     const v = Math.random() * 255;
@@ -383,6 +390,3 @@ function noiseDataURL() {
   ctx.putImageData(imgData, 0, 0);
   return `url(${c.toDataURL()})`;
 }
-
-
-
