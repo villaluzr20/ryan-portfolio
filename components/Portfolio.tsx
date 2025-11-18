@@ -71,18 +71,25 @@ export default function Portfolio() {
   }, [answers, qIndex, done]);
 
   // Init audio lazily
-  useEffect(() => {
-    const handler = () => {
-      if (!audioCtxRef.current) {
-        audioCtxRef.current = new (window.AudioContext ||
-          (window as any).webkitAudioContext)();
+useEffect(() => {
+  const handler = () => {
+    if (!audioCtxRef.current) {
+      const win = window as Window & {
+        webkitAudioContext?: typeof AudioContext;
+      };
+
+      const AudioCtx = win.AudioContext || win.webkitAudioContext;
+      if (AudioCtx) {
+        audioCtxRef.current = new AudioCtx();
       }
-      document.removeEventListener("pointerdown", handler);
-      document.removeEventListener("keydown", handler);
-    };
-    document.addEventListener("pointerdown", handler, { once: true });
-    document.addEventListener("keydown", handler, { once: true });
-  }, []);
+    }
+    document.removeEventListener("pointerdown", handler);
+    document.removeEventListener("keydown", handler);
+  };
+  document.addEventListener("pointerdown", handler, { once: true });
+  document.addEventListener("keydown", handler, { once: true });
+}, []);
+
 
   // Auto-scroll
   useEffect(() => {
@@ -364,3 +371,4 @@ function noiseDataURL() {
   ctx.putImageData(imgData, 0, 0);
   return `url(${c.toDataURL()})`;
 }
+
