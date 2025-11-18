@@ -226,8 +226,9 @@ useEffect(() => {
                 <p className="text-white/80 mb-6">
                   thanks for sharing a moment with me.
                   <br />
-                  if you'd like to go further:
+                  {"if you'd like to go further:"}
                 </p>
+
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
                     href="/projects"
@@ -371,4 +372,5 @@ function noiseDataURL() {
   ctx.putImageData(imgData, 0, 0);
   return `url(${c.toDataURL()})`;
 }
+
 
