@@ -78,19 +78,30 @@ useEffect(() => {
         webkitAudioContext?: typeof AudioContext;
       };
 
-      const AudioCtx = win.AudioContext || win.webkitAudioContext;
+      let AudioCtx: typeof AudioContext | undefined;
+
+      if (typeof AudioContext !== "undefined") {
+        AudioCtx = AudioContext;
+      } else if (typeof win.webkitAudioContext !== "undefined") {
+        AudioCtx = win.webkitAudioContext;
+      }
+
       if (AudioCtx) {
         audioCtxRef.current = new AudioCtx();
       }
     }
+
     document.removeEventListener("pointerdown", handler);
     document.removeEventListener("keydown", handler);
   };
+
   document.addEventListener("pointerdown", handler, { once: true });
   document.addEventListener("keydown", handler, { once: true });
+
+  // no cleanup needed because we use { once: true },
+  // but we could still return a cleanup if we wanted
 }, []);
-
-
+  
   // Auto-scroll
   useEffect(() => {
     const el = containerRef.current;
@@ -372,5 +383,6 @@ function noiseDataURL() {
   ctx.putImageData(imgData, 0, 0);
   return `url(${c.toDataURL()})`;
 }
+
 
 
