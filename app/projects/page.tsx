@@ -177,7 +177,7 @@ function ChefPanel() {
 
   return (
     <section className="space-y-6 text-center">
-      <p className="text-white/85">Some people write with code. I write with garlic.</p>
+      <p className="text-white/85">Creativity in code & in the kitchen.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 place-items-center">
         {photos.map((img, i) => (
           <StaticPolaroid key={i} src={img.src} alt={img.alt} caption={img.caption} />
@@ -230,3 +230,4 @@ function TabButton({
     </button>
   );
 }
+
