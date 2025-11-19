@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ryan Josh Villaluz — Interactive Portfolio
 
-## Getting Started
+Welcome to my interactive portfolio — a small experience designed to slow things down, ask a few reflective questions, and then show you who I am and what I build.
 
-First, run the development server:
+This project is intentionally different.  
+Instead of a traditional “Here’s my resume and some links,” I wanted to create a short moment of calm for anyone checking me out — employers included. No stress, no noise. Just a quick vibe check before diving into the usual professional stuff.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🔗 Live Site  
+**https://ryanjosh-portfolio.vercel.app**
+
+---
+
+## 🌟 What This Is
+
+This is a custom-built interactive prompt that:
+
+- Asks you a few reflective questions  
+- Types responses in a retro CRT-terminal aesthetic  
+- Transitions into my projects, background, and resume  
+- Gives visitors a few seconds to breathe before reading about me  
+
+The goal is simple:  
+**a small human moment before the professional details.**
+
+---
+
+## 🔒 Privacy & Data
+
+**I do not store, track, send, or share *anything* you type.**
+
+- Your responses stay inside **your own browser**  
+- Stored only via `localStorage`  
+- Automatically expire after **14 days**  
+- Nothing is sent to a server  
+- Nothing leaves your device  
+
+This is a portfolio, not a product — the experience is for *you*.
+
+---
+
+## 🛠️ Tech Stack
+
+This project is built with:
+
+- **Next.js 15** (App Router)
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- Custom typewriter & timing engine
+- Browser-generated audio for keypress effects
+- Styled CRT/noise overlay made from canvas pixel data
+
+---
+
+## 🚀 Try It Yourself
+
+Just open the site:
+
+👉 **https://ryanjosh-portfolio.vercel.app**
+
+Answer a few questions, skip the typing animation if you prefer, and explore what I create.
+
+---
+
+## 🧱 Project Structure (High-Level)
+
+```
+app/
+page.tsx → Interactive Q&A experience
+projects/ → Portfolio projects
+about/ → Background and personal story
+resume/ → Professional experience
+
+components/
+Portfolio.tsx → Main interactive logic
+Cursor.tsx → Blinking cursor
+Toggle.tsx → UI toggle components
+Noise.tsx → CRT/noise overlay
+
+public/
+images/
+assets/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Contact
 
-## Learn More
+If you'd like to chat, collaborate, hire, or just vibe:
 
-To learn more about Next.js, take a look at the following resources:
+- **LinkedIn:** YOUR-LINK-HERE  
+- **GitHub:** https://github.com/villaluzr20  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ❤️ Why I Built It This Way
 
-## Deploy on Vercel
+Most portfolios feel rushed.  
+Most recruiters are rushed.  
+Most engineers are rushed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I wanted to create a space that doesn’t rush you.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A space that feels thoughtful, atmospheric, and a little more human — because I believe the best software is built with attention, intention, and emotion.
+
+Thanks for stopping by.  
+I appreciate your time.
